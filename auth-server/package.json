@@ -1,0 +1,12 @@
+{
+  "author": "Spotify",
+  "name": "web-api-auth-examples",
+  "description": "Spotify authorization through OAuth 2",
+  "version": "0.0.1",
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.3",
+    "querystring": "~0.2.0",
+    "request": "^2.87.0"
+  }
+}

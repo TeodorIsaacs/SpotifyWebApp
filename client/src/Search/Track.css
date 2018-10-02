@@ -1,0 +1,21 @@
+@media screen and (max-width: 680px) {
+	.Tracks {
+		margin-top: 60px;
+	}
+}
+
+@media screen and (min-width: 681px) {
+	.Tracks {
+		margin-top: 10px;
+		margin-left: 10px;
+	}
+}
+
+.Tracks p {
+	padding: 10px;
+}
+
+.Track {
+	margin-right: 10px;
+	margin-top: 10px;
+}

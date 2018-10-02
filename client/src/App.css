@@ -1,0 +1,70 @@
+.navbar{
+    left: 0;
+    z-index: 1;
+    top: 15vh;
+    position: fixed;
+    background-color: red;
+    width: 100%;
+    height: 50px;
+}
+
+.navbar a{
+    line-height: 50px;
+    font-size: 20px;
+    text-align: center;
+    float: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+}
+
+.logoutBtn{
+    float: right !important;
+}
+
+.discoverBtn{
+  margin-right: 5px;
+}
+
+.main{
+	top: 0;
+	left: 0;
+	margin-top: calc(15vh + 50px);
+	position: fixed;
+	display: flex;
+	width: 100%;
+  height: 85vh;
+  overflow: auto;
+}
+
+header {
+    z-index: 1;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background-color: grey;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 15vh;
+}
+
+.App-title{
+  text-decoration: none;
+}
+
+h1 {
+    font-size: 8vh;
+    color: #fff;
+}
+
+h1:hover {
+    color: #000;
+    cursor: pointer;
+}
