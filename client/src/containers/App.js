@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Welcome from "Welcome";
 import Search from "Search";
 import Favourites from "Favourites";
+import Navbar from "Navbar";
 
 import { DB_CONFIG } from "config";
 import firebase from "firebase/app";
@@ -18,6 +19,7 @@ class App extends Component {
       song: "",
       isDBInit: false,
       favs: null,
+      userToken: null,
     };
   }
 
@@ -44,22 +46,6 @@ class App extends Component {
         });
     }
   }
-  //Flytta ut den här skiten
-  renderNavbar() {
-    return (
-      <div className="navbar">
-        <Link className="discoverBtn" to="/search">
-          Discover
-        </Link>
-        <Link className="favouritesBtn" to="/favourites">
-          My Favourites
-        </Link>
-        <Link className="logoutBtn" to="/">
-          Home
-        </Link>
-      </div>
-    );
-  }
 
   render() {
     return (
@@ -69,7 +55,7 @@ class App extends Component {
             <h1 >{this.state.title} </h1>
           </a>
         </header>
-        {this.renderNavbar()}
+        <Navbar/>
         <div>
           <Route
             exact
