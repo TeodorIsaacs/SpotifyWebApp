@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import "./App.css";
 import { Route, Link } from "react-router-dom";
-import Welcome from "./Components/Welcome/Welcome";
-import Search from "./Components/Search/Search.js";
-import Favourites from "./Components/Favourites/Favourites.js";
+import Welcome from "Welcome";
+import Search from "Search";
+import Favourites from "Favourites";
 
-import { DB_CONFIG } from "./Config/config";
+import { DB_CONFIG } from "config";
 import firebase from "firebase/app";
 import "firebase/database";
 

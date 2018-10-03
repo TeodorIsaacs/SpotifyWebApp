@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Favourites.css";
-import Track from "../Search/Track.js";
+import Track from "Track";
 
 class Favourites extends Component {
 	state = {

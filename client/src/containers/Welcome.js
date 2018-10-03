@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
 import './Welcome.css';
-import { Link } from 'react-router-dom';
-
-import SpotifyWebApi from 'spotify-web-api-js';
-const spotifyApi = new SpotifyWebApi();
 
 class Welcome extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
