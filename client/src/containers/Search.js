@@ -3,15 +3,12 @@ import "./Search.css";
 import Track from "Track";
 
 class Search extends Component {
-	constructor(props) {
-		super(props);
 
-		this.state = {
-			popularity: 0,
-			filter: "",
-			songs: [],
-			activeSong: null
-		};
+	state = {
+		popularity: 0,
+		filter: "",
+		songs: [],
+		activeSong: null
 	}
 
 	componentWillMount() {
@@ -20,6 +17,8 @@ class Search extends Component {
 		this.props.setToken(token);
 	}
 
+
+	// FLYTTA UT DENNA KOD
 	getHashParams() {
 		var hashParams = {};
 		var e,
@@ -32,6 +31,10 @@ class Search extends Component {
 		}
 		return hashParams;
 	}
+	// TILLS HIT
+
+
+
 
 	search(popularity, filter) {
 		this.setState({

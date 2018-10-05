@@ -3,13 +3,7 @@ import "./Track.css";
 
 class Track extends Component {
   render() {
-    return this.props.track && <Player track={this.props.track} />;
-  }
-}
-
-class Player extends React.Component {
-  render() {
-    return (
+    return this.props.track && 
       <div className="Track">
         <iframe
           src={"https://open.spotify.com/embed?uri=" + this.props.track.uri}
@@ -17,8 +11,7 @@ class Player extends React.Component {
           height="400"
           allow="encrypted-media"
         />
-      </div>
-    );
+      </div>;
   }
 }
 

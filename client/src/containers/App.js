@@ -11,41 +11,40 @@ import firebase from "firebase/app";
 import "firebase/database";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
+  state = {
       title: "MusicBois",
       song: "",
       isDBInit: false,
       favs: null,
       userToken: null,
-    };
-  }
+      database: null,
+  };
+//  FLYTTA UT DEN HÄR SKITEN TILL NÅN ANNAN STANS
+              componentDidMount() {
+                this.app = firebase.initializeApp(DB_CONFIG);
+                this.database = this.app
+                  .database()
+                  .ref()
+                  .child("songs");
 
-  componentDidMount() {
-    this.app = firebase.initializeApp(DB_CONFIG);
-    this.database = this.app
-      .database()
-      .ref()
-      .child("songs");
+                this.getFavs();
+              }
 
-    this.getFavs();
-  }
+              getFavs() {
+                if (this.app) {
+                  this.app
+                    .database()
+                    .ref()
+                    .once("value")
+                    .then(payload => {
+                      this.setState({
+                        favs: payload.val().songs
+                      });
+                    });
+                }
+              }
 
-  getFavs() {
-    if (this.app) {
-      this.app
-        .database()
-        .ref()
-        .once("value")
-        .then(payload => {
-          this.setState({
-            favs: payload.val().songs
-          });
-        });
-    }
-  }
+// FRAM TILL HIT
 
   render() {
     return (
