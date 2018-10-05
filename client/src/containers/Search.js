@@ -7,9 +7,7 @@ import {getSong as getSongApi, getHashParams} from "spotifyApi"
 class Search extends Component {
 
 	state = {
-		popularity: 0,
 		filter: "",
-		songs: [],
 		activeSong: null
 	}
 
