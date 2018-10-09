@@ -8,7 +8,7 @@ class Search extends Component {
 
 	state = {
 		filter: "",
-		activeSong: null
+		activeTrack: null
 	}
 
 	componentWillMount() {
@@ -17,7 +17,6 @@ class Search extends Component {
 	}
 
 	saveSong = (song) => {
-		console.log(this.props.activeSong);
 		this.props.db.push().set(this.state.activeSong);
 	}
 
@@ -28,7 +27,7 @@ class Search extends Component {
 	}
 
 	getSong = () => {
-		getSongApi(this.state.filter, this.state.token)
+		getSongApi(this.state.filter, this.props.token)
 			.then(payload => {
 				payload.json().then(data => {
 					try {
@@ -39,8 +38,7 @@ class Search extends Component {
 							);
 						} else {
 							const track = data.tracks.items[0];
-							console.log(track);
-							this.setState({activeSong: {
+							this.setState({activeTrack: {
 								uri: track.uri,
 								name: track.name
 							}})
@@ -61,11 +59,11 @@ class Search extends Component {
 						saveSong={this.saveSong}
 						updateFilter={this.updateFilter}
 						getSong={this.getSong}
-						activeSong={this.state.activeSong}
+						activeTrack={this.state.activeTrack}
 					/>
 
 					<Track
-						track={this.state.activeSong}
+						track={this.state.activeTrack}
 					/>
 				</div>
 			</div>
