@@ -12,46 +12,28 @@ import "firebase/database";
 
 class App extends Component {
   state = {
-      title: "MusicBois",
       song: "",
-      isDBInit: false,
-      favs: null,
       userToken: null,
       database: null,
   };
-//  FLYTTA UT DEN HÄR SKITEN TILL NÅN ANNAN STANS
-              componentDidMount() {
-                this.app = firebase.initializeApp(DB_CONFIG);
-                this.database = this.app
-                  .database()
-                  .ref()
-                  .child("songs");
 
-                this.getFavs();
-              }
+  componentDidMount() {
+    this.initializeDB()
+  }
 
-              getFavs() {
-                if (this.app) {
-                  this.app
-                    .database()
-                    .ref()
-                    .once("value")
-                    .then(payload => {
-                      this.setState({
-                        favs: payload.val().songs
-                      });
-                    });
-                }
-              }
-
-// FRAM TILL HIT
+  initializeDB(){
+    firebase.initializeApp(DB_CONFIG);
+    var database = firebase
+      .database()
+    this.setState({database: database})
+  }
 
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <a className="App-title" href={"/search"}>
-            <h1 >{this.state.title} </h1>
+            <h1 > MusicBois </h1>
           </a>
         </header>
         <Navbar/>
@@ -66,20 +48,18 @@ class App extends Component {
             render={() => (
               <Search
                 token={this.state.userToken}
-                player={this.state.player}
-                deviceId={this.state.deviceId}
                 setToken={token => this.setState({ userToken: token })}
-                filter={this.state.filter}
-                db={this.database}
+                db={this.state.database}
               />
             )}
           />
+
           <Route
             path="/favourites"
             render={() => (
               <Favourites
                 favourites={this.state.favs && Object.values(this.state.favs)}
-                getFavs={() => this.getFavs()}
+                database={this.state.database}
               />
             )}
           />
