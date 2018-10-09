@@ -49,7 +49,7 @@ class App extends Component {
               <Search
                 token={this.state.userToken}
                 setToken={token => this.setState({ userToken: token })}
-                db={this.state.database}
+                database={this.state.database}
               />
             )}
           />

@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import "./Search.css";
 import Track from "Track";
-import SearchBar from "SearchBar"
-import {getSong as getSongApi, getHashParams} from "spotifyApi"
+import SearchBar from "SearchBar";
+import {getSong as getSongApi, getHashParams} from "spotifyApi";
 import PropTypes from "prop-types";
+import {saveTrack as saveTrackApi} from "firebaseApi";
 
 class Search extends Component {
 
 	state = {
 		filter: "",
-		activeTrack: null
+		activeTrack: null,
 	}
 
 	componentWillMount() {
@@ -17,8 +18,8 @@ class Search extends Component {
 		this.props.setToken(token);
 	}
 
-	saveSong = (song) => {
-		this.props.db.push().set(this.state.activeSong);
+	saveSong = () => {
+		saveTrackApi(this.props.database, this.state.activeTrack);
 	}
 
 	updateFilter = (event) => {
