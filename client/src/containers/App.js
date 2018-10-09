@@ -5,6 +5,7 @@ import Welcome from "Welcome";
 import Search from "Search";
 import Favourites from "Favourites";
 import Navbar from "Navbar";
+import {getHashParams} from "spotifyApi";
 
 import { DB_CONFIG } from "config";
 import firebase from "firebase/app";
@@ -19,6 +20,8 @@ class App extends Component {
 
   componentDidMount() {
     this.initializeDB()
+    const token = getHashParams().access_token;
+    this.setState({ userToken: token });
   }
 
   initializeDB(){
@@ -48,7 +51,6 @@ class App extends Component {
             render={() => (
               <Search
                 token={this.state.userToken}
-                setToken={token => this.setState({ userToken: token })}
                 database={this.state.database}
               />
             )}

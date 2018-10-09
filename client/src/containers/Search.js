@@ -13,11 +13,6 @@ class Search extends Component {
 		activeTrack: null,
 	}
 
-	componentWillMount() {
-		const token = getHashParams().access_token;
-		this.props.setToken(token);
-	}
-
 	saveSong = () => {
 		saveTrackApi(this.props.database, this.state.activeTrack);
 	}
@@ -76,7 +71,6 @@ class Search extends Component {
 }
 
 Search.propTypes = {
-	setToken: PropTypes.func.isRequired,
 	token: PropTypes.string,
 }
 
