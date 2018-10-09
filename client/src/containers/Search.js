@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./Search.css";
 import Track from "Track";
 import SearchBar from "SearchBar";
-import {getSong as getSongApi, getHashParams} from "spotifyApi";
+import {getSong as getSongApi} from "spotifyApi";
 import PropTypes from "prop-types";
 import {saveTrack as saveTrackApi} from "firebaseApi";
 
