@@ -1,4 +1,3 @@
-
 export async function getSong(filter, token) {
 	if (filter) {
 		return fetch(
@@ -16,6 +15,7 @@ export async function getSong(filter, token) {
 		)
 	}
 }
+
 export function getHashParams() {
 	var hashParams = {};
 	var e,

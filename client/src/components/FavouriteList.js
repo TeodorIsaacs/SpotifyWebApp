@@ -4,8 +4,9 @@ import FavouriteListing from "FavouriteListing"
 class FavoriteList extends Component {
 
 	renderList() {
+		console.log(this.props.favourites)
 		return (
-			this.props.favourites &&
+			this.props.favourites && 
 			this.props.favourites.map(track => (
 				<FavouriteListing
 					trackClick = {() => this.props.trackClick(track)}
