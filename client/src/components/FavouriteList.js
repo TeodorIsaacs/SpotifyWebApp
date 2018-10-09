@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import FavouriteListing from "FavouriteListing"
+import PropTypes from 'prop-types';
 
-class FavoriteList extends Component {
+class FavouriteList extends Component {
 
 	renderList() {
-		console.log(this.props.favourites)
 		return (
-			this.props.favourites && 
 			this.props.favourites.map(track => (
 				<FavouriteListing
 					trackClick = {() => this.props.trackClick(track)}
@@ -25,4 +24,9 @@ class FavoriteList extends Component {
 	}
 }
 
-export default FavoriteList;
+FavouriteList.propTypes = {
+	favourites: PropTypes.array.isRequired,
+	trackClick: PropTypes.func.isRequired,
+}
+
+export default FavouriteList;

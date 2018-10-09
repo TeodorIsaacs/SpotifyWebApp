@@ -3,6 +3,7 @@ import "./Search.css";
 import Track from "Track";
 import SearchBar from "SearchBar"
 import {getSong as getSongApi, getHashParams} from "spotifyApi"
+import PropTypes from "prop-types";
 
 class Search extends Component {
 
@@ -62,13 +63,20 @@ class Search extends Component {
 						activeTrack={this.state.activeTrack}
 					/>
 
-					<Track
-						track={this.state.activeTrack}
-					/>
+					{this.state.activeTrack &&
+						<Track
+							track={this.state.activeTrack}
+						/>
+					}
 				</div>
 			</div>
 		);
 	}
+}
+
+Search.propTypes = {
+	setToken: PropTypes.func.isRequired,
+	token: PropTypes.string,
 }
 
 export default Search;

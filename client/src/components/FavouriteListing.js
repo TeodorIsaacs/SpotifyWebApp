@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import PropTypes from 'prop-types';
 
 class FavouriteListing extends Component {
 	render(){
@@ -12,6 +12,14 @@ class FavouriteListing extends Component {
 			</div>
 		)
 	}
+}
+
+FavouriteListing.propTypes = {
+	track: PropTypes.shape({
+		name: PropTypes.string,
+		uri: PropTypes.string,
+	}).isRequired,
+	trackClick: PropTypes.func.isRequired,
 }
 
 export default FavouriteListing;

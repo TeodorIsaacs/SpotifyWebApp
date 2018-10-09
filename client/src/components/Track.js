@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Track.css";
+import PropTypes from "prop-types";
 
 class Track extends Component {
   render() {
@@ -13,6 +14,12 @@ class Track extends Component {
         />
       </div>;
   }
+}
+
+Track.propTypes = {
+  track: PropTypes.shape({
+    uri: PropTypes.string
+  }).isRequired
 }
 
 export default Track;

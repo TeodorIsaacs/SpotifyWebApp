@@ -3,6 +3,7 @@ import "./Favourites.css";
 import Track from "Track";
 import FavouriteList from "FavouriteList"
 import {getFavourites as getFavouritesApi} from "firebaseApi";
+import PropTypes from 'prop-types';
 
 class Favourites extends Component {
 	state = {
@@ -26,15 +27,20 @@ class Favourites extends Component {
 
 	render() {
 		return (
-			<div className="main">
-				<FavouriteList
-					trackClick = {track => this.setState({track: track})}
-					favourites = {this.state.favourites}
-				/>
+			<div className="main">{
+				this.state.favourites &&
+					<FavouriteList
+						trackClick = {track => this.setState({track: track})}
+						favourites = {this.state.favourites}
+					/>}
 				{this.state.track && <Track track={this.state.track} />}
 			</div>
 		);
 	}
+}
+
+Favourites.propTypes = {
+
 }
 
 export default Favourites;

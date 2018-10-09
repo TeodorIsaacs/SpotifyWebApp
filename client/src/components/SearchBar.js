@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
 
@@ -24,7 +25,7 @@ class SearchBar extends Component {
 						>
 							Get a song
 						</button>
-						{this.props.activeSong ? (
+						{this.props.activeTrack ? (
 							<button
 								className="SearchSaveBtn"
 								onClick={() => this.props.saveSong()}
@@ -39,4 +40,16 @@ class SearchBar extends Component {
 		);
 	}
 }
+
+SearchBar.propTypes = {
+	filter: PropTypes.string,
+	activeTrack: PropTypes.shape({
+		name: PropTypes.string,
+		uri: PropTypes.string,
+	}),
+	updateFilter: PropTypes.func.isRequired,
+	getSong: PropTypes.func.isRequired,
+	saveSong: PropTypes.func.isRequired,
+}
+
 export default SearchBar;
