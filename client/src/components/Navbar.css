@@ -1,0 +1,29 @@
+.navbar{
+    left: 0;
+    z-index: 1;
+    top: 15vh;
+    position: fixed;
+    background-color: red;
+    width: 100%;
+    height: 50px;
+}
+
+.navbar a{
+    line-height: 50px;
+    font-size: 20px;
+    text-align: center;
+    float: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+}
+
+.homeBtn{
+    float: right !important;
+}
+
+.discoverBtn{
+  margin-right: 5px;
+}
