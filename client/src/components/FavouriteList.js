@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import FavouriteListing from "FavouriteListing"
 import PropTypes from 'prop-types';
+import "FavouriteList.css";
 
 class FavouriteList extends Component {
 
