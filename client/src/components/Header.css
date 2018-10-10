@@ -12,18 +12,23 @@ header {
     align-items: center;
     width: 100%;
     height: 15vh;
+
+    background: -moz-linear-gradient(-45deg, #fac695 12%, #ff35a0 99%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #fac695 12%,#ff35a0 99%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #fac695 12%,#ff35a0 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fac695', endColorstr='#ff35a0',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
 }
 
-.App-title{
+.appTitle{
     text-decoration: none;
-}
-
-h1 {
     font-size: 8vh;
     color: #fff;
+    font-family: Futura;
+    font-weight: 800;
 }
 
-h1:hover {
-    color: #000;
+.appTitle:hover {
+    color: #eee;
     cursor: pointer;
 }

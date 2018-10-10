@@ -24,6 +24,9 @@ class Search extends Component {
 	}
 
 	getSong = () => {
+		if (!this.state.filter) {
+			return null;
+		}
 		getSongApi(this.state.filter, this.props.token)
 			.then(payload => {
 				payload.json().then(data => {

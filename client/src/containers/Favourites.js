@@ -27,7 +27,7 @@ class Favourites extends Component {
 
 	render() {
 		return (
-			<div className="main">{
+			<div className="favourites">{
 				this.state.favourites &&
 					<FavouriteList
 						trackClick = {track => this.setState({track: track})}

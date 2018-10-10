@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import "Header.css";
 
 class Header extends Component{
 
 	render(){
 		return(
-			<header className="App-header">
-				<a className="App-title" href={"/search"}>
-					<h1 > MusicBois </h1>
-				</a>
+			<header>
+				<Link className="appTitle" to="/search">
+					MusicBois
+				</Link>
 			</header>
 		)
 	}

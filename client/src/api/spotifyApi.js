@@ -1,19 +1,17 @@
 export async function getSong(filter, token) {
-	if (filter) {
-		return fetch(
-			"https://api.spotify.com/v1/search?q=" +
-				filter +
-				"&type=track&limit=1&offset=0",
-			{
-				method: "GET",
-				headers: {
-					Authorization: "Bearer " + token,
-					Accept: "application/json",
-					"Content-Type": "application/json"
-				}
+	return fetch(
+		"https://api.spotify.com/v1/search?q=" +
+			filter +
+			"&type=track&limit=1&offset=0",
+		{
+			method: "GET",
+			headers: {
+				Authorization: "Bearer " + token,
+				Accept: "application/json",
+				"Content-Type": "application/json"
 			}
-		)
-	}
+		}
+	)
 }
 
 export function getHashParams() {
