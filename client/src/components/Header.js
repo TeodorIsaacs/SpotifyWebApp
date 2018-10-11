@@ -7,7 +7,7 @@ class Header extends Component{
 	render(){
 		return(
 			<header>
-				<Link className="appTitle" to="/search">
+				<Link className="app-title" to="/search">
 					MusicBois
 				</Link>
 			</header>

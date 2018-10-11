@@ -7,13 +7,13 @@ class Navbar extends Component{
   render() {
     return (
       <div className="navbar">
-        <Link className="discoverBtn" to="/search">
+        <Link className="discover-button" to="/search">
           Discover
         </Link>
-        <Link className="favouritesBtn" to="/favourites">
+        <Link className="favourites-button" to="/favourites">
           My Favourites
         </Link>
-        <Link className="homeBtn" to="/">
+        <Link className="home-button" to="/">
           Home
         </Link>
       </div>

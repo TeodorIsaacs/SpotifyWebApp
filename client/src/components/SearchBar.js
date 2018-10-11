@@ -12,36 +12,31 @@ class SearchBar extends Component {
 	render() {
 		return (
 			<div>
-				<div className="SearchBarTitle">
+				<div className="search-bar-title">
 					<h2>Search tracks</h2>
 				</div>
-				<div className="SearchBarContent">
-					<div className="SearchBox">
-						<input
-							className="TextSearch"
-							placeholder="Enter query"
-							value={this.props.filter}
-							onChange={event => this.props.updateFilter(event)}
-							onKeyPress={this.handleKeyPress}
-						/>
-					</div>
-					<div className="BtnBox">
+				<div className="search-box">
+					<input
+						className="text-search"
+						placeholder="Enter query"
+						value={this.props.filter}
+						onChange={event => this.props.updateFilter(event)}
+						onKeyPress={this.handleKeyPress}
+					/>
+				</div>
+				<div className="button-box">
+					<button
+						className="basic-button"
+						onClick={() => this.props.getSong()}
+					> Get a song
+					</button>
+					{this.props.activeTrack && 
 						<button
-							className="SearchSaveBtn"
-							onClick={() => this.props.getSong()}
-						>
-							Get a song
+							className="basic-button"
+							onClick={() => this.props.saveSong()}
+						> Save song
 						</button>
-						{this.props.activeTrack ? (
-							<button
-								className="SearchSaveBtn"
-								onClick={() => this.props.saveSong()}
-							>
-								{" "}
-								Save song{" "}
-							</button>
-						) : null}
-					</div>
+					}
 				</div>
 			</div>
 		);

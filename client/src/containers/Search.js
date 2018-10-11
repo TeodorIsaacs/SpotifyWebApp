@@ -39,22 +39,20 @@ class Search extends Component {
 
 	render() {
 		return (
-			<div className="SearchBar">
-				<div className="SearchBarMain">
-					<SearchBar
-						filter={this.state.filter}
-						saveSong={this.saveSong}
-						updateFilter={this.updateFilter}
-						getSong={this.getSong}
-						activeTrack={this.state.activeTrack}
-					/>
+			<div className="search-bar">
+				<SearchBar
+					filter={this.state.filter}
+					saveSong={this.saveSong}
+					updateFilter={this.updateFilter}
+					getSong={this.getSong}
+					activeTrack={this.state.activeTrack}
+				/>
 
-					{this.state.activeTrack &&
-						<Track
-							track={this.state.activeTrack}
-						/>
-					}
-				</div>
+				{this.state.activeTrack &&
+					<Track
+						track={this.state.activeTrack}
+					/>
+				}
 			</div>
 		);
 	}

@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 class Track extends Component {
   render() {
     return this.props.track && 
-      <div className="Track">
+      <div className="track">
         <iframe
           src={"https://open.spotify.com/embed?uri=" + this.props.track.uri}
           width="300"

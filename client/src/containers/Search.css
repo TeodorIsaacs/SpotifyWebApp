@@ -1,37 +1,16 @@
 @media screen and (max-width: 680px) {
-	.SearchBar {
+	.search-bar {
 		width: 100%;
-	}
-
-	.LeftText{
-		margin-left: 10px;
-	}
-
-	.RightText{
-		margin-right: 10px;
 	}
 }
 
 @media screen and (min-width: 681px) {
-	.SearchBarMain{
-		display: block;
-	}
-
-	.SearchBar {
+	.search-bar {
 		width: 100%;
-	}
-
-	.LeftText{
-		margin-left: 10%;
-	}
-
-	.RightText{
-		margin-right: 10%;
 	}
 }
 
-
-.SearchBarTitle {
+.search-bar-title {
 	font-size: 25px;
 	text-align: center;
 	color: #bbb;
@@ -39,57 +18,12 @@
 	font-weight: 1;
 }
 
-.SearchBarMain{
-	width: 100%;
-}
-
-.SearchBox{
+.search-box{
 	text-align: center;
 	margin-top: 10px;
 }
 
-.SliderText{
-	margin-top: 30px;
-	height: 50px;
-}
-
-.SliderText h3{
-	text-align: center;
-	-webkit-margin-before: 0;
-	-webkit-margin-after: 0;
-}
-
-.LeftText{
-	font-weight: bold;
-	font-size: 18px;
-	float: left;
-}
-
-.RightText{
-	font-weight: bold;
-	font-size: 18px;
-	float: right;
-}
-
-.SliderBox{
-	text-align: center;
-}
-
-.Slider{
-	-webkit-appearance: none;
-	width: 60%;
-	height: 10px;
-	background: grey;
-}
-
-.Slider::-webkit-slider-thumb{
-  -webkit-appearance: none;
-	width: 25px;
-	height: 25px;
-	background: red;
-}
-
-.TextSearch {
+.text-search {
 	height: 50px;
 	background-color: #333;
 	border-radius: 5px;
@@ -107,12 +41,12 @@ input:focus {
 	outline: 0;
 }
 
-.BtnBox{
+.button-box{
 	text-align: center;
 	margin-top: 30px;
 }
 
-.SearchSaveBtn {
+.basic-button {
 	height: 30px;
 	width: 100px;
 	border: 1px solid #ccc;
@@ -124,7 +58,7 @@ input:focus {
 	border-radius: 3px;
 }
 
-.SearchSaveBtn:hover {
+.basic-button:hover {
 	background-color: #bbb;
 	border-color: #bbb;
 }

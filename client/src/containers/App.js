@@ -37,7 +37,7 @@ class App extends Component {
             <div className="main">
                 <Header/>
                 <Navbar/>
-                <div>
+                <React.Fragment>
                     <Route
                         exact
                         path="/"
@@ -62,7 +62,7 @@ class App extends Component {
                             />
                         )}
                     />
-                </div>
+                </React.Fragment>
             </div>
         );
     }
