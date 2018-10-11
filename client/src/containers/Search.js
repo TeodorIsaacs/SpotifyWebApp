@@ -29,24 +29,11 @@ class Search extends Component {
 		}
 		getSongApi(this.state.filter, this.props.token)
 			.then(payload => {
-				payload.json().then(data => {
-					try {
-						//Improve error handling
-						if (data.error) {
-							alert(
-								"Your acces token has expired, please log in again"
-							);
-						} else {
-							const track = data.tracks.items[0];
-							this.setState({activeTrack: {
-								uri: track.uri,
-								name: track.name
-							}})
-						}
-					} catch (e) {
-						alert("Try searching for something else");
-					}
-				});
+				if (payload.error) {
+					alert(`Something went wrong, status code: ${payload.error.status}`);
+				} else {
+					this.setState({activeTrack: payload})
+				}
 			});
 	}
 

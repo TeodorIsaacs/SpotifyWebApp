@@ -1,5 +1,5 @@
 export async function getSong(filter, token) {
-	return fetch(
+	const data = await fetch(
 		"https://api.spotify.com/v1/search?q=" +
 			filter +
 			"&type=track&limit=1&offset=0",
@@ -12,6 +12,14 @@ export async function getSong(filter, token) {
 			}
 		}
 	)
+
+	const json = await data.json();
+
+	if (json.error) { return json; }
+
+	const track = json.tracks.items[0];
+
+	return ({name: track.name, uri: track.uri});
 }
 
 export function getHashParams() {
