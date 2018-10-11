@@ -1,0 +1,14 @@
+.song-listing {
+  padding: 5px;
+  font-size: 20px;
+  width: 100%;
+  color: #eee;
+  background-color: #555;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+.song-listing:hover {
+	background-color: #444;
+	cursor: pointer;
+}

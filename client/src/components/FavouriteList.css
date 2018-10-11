@@ -1,0 +1,9 @@
+.song-list {
+  flex-direction: column;
+  width: 70%;
+  margin: 0 auto 0 auto;
+  color: #eee;
+  font-family: Helvetica;
+  overflow: auto;
+  padding-bottom: 100px;
+}
