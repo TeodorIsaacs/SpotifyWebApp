@@ -3,6 +3,12 @@ import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
 
+	handleKeyPress = (e) => {
+		if (e.key === 'Enter') {
+      		this.props.getSong();
+    	}
+	}
+
 	render() {
 		return (
 			<div>
@@ -16,6 +22,7 @@ class SearchBar extends Component {
 							placeholder="Enter query"
 							value={this.props.filter}
 							onChange={event => this.props.updateFilter(event)}
+							onKeyPress={this.handleKeyPress}
 						/>
 					</div>
 					<div className="BtnBox">
