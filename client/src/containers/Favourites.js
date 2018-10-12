@@ -14,6 +14,13 @@ class Favourites extends Component {
 		this.getFavourites();
 	}
 
+	componentDidUpdate(prevProps) {
+		// Typical usage (don't forget to compare props):
+		if (this.props.isDatabaseInit !== prevProps.isDatabaseInit) {
+			this.getFavourites();
+		}
+	}
+
 	getFavourites() {
         if (this.props.database) {
           getFavouritesApi(this.props.database)

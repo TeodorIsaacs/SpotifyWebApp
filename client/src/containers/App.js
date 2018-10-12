@@ -17,6 +17,7 @@ class App extends Component {
         song: "",
         userToken: null,
         database: null,
+        isDatabaseInit: false,
     };
 
     componentDidMount() {
@@ -29,7 +30,10 @@ class App extends Component {
         firebase.initializeApp(DB_CONFIG);
         var database = firebase
             .database()
-        this.setState({database: database})
+        this.setState({
+            database: database,
+            isDatabaseInit: true
+        })
     }
 
     render() {
@@ -59,6 +63,7 @@ class App extends Component {
                             <Favourites
                                 favourites={this.state.favs && Object.values(this.state.favs)}
                                 database={this.state.database}
+                                isDatabaseInit={this.state.isDatabaseInit}
                             />
                         )}
                     />
