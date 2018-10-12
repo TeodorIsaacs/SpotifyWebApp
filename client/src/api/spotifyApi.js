@@ -22,6 +22,24 @@ export async function getSong(filter, token) {
 	return ({name: track.name, uri: track.uri});
 }
 
+export async function getAccountDetails(token) {
+	const data = await fetch(
+		"https://api.spotify.com/v1/me",
+		{
+			method: "GET",
+			headers: {
+				Authorization: "Bearer " + token,
+				Accept: "application/json",
+				"Content-Type": "application/json"
+			}
+		}
+	)
+
+	const json = await data.json();
+
+	return json
+}
+
 export function getHashParams() {
 	var hashParams = {};
 	var e,

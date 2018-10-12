@@ -11,6 +11,7 @@ class FavouriteList extends Component {
 				<FavouriteListing
 					trackClick = {() => this.props.trackClick(track)}
 					track = {track}
+					key = {track.uri}
 				/>
 			)));
 	}

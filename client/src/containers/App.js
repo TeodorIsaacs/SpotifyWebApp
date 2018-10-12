@@ -6,9 +6,9 @@ import Search from "Search";
 import Favourites from "Favourites";
 import Navbar from "Navbar";
 import Header from "Header";
-import {getHashParams} from "spotifyApi";
+import {getHashParams, getAccountDetails} from "spotifyApi";
 
-import { DB_CONFIG } from "config";
+import { DB_CONFIG } from "firebaseApi";
 import firebase from "firebase/app";
 import "firebase/database";
 
@@ -18,12 +18,14 @@ class App extends Component {
         userToken: null,
         database: null,
         isDatabaseInit: false,
+        userId: null,
     };
 
     componentDidMount() {
         this.initializeDB()
         const token = getHashParams().access_token;
         this.setState({ userToken: token });
+        this.getUser(token);
     }
 
     initializeDB(){
@@ -34,6 +36,13 @@ class App extends Component {
             database: database,
             isDatabaseInit: true
         })
+    }
+
+    getUser(token){
+        getAccountDetails(token)
+            .then(payload => {
+                this.setState({ userId: payload.id });
+            })
     }
 
     render() {
@@ -53,6 +62,7 @@ class App extends Component {
                             <Search
                                 token={this.state.userToken}
                                 database={this.state.database}
+                                userId={this.state.userId}
                             />
                         )}
                     />
@@ -64,6 +74,7 @@ class App extends Component {
                                 favourites={this.state.favs && Object.values(this.state.favs)}
                                 database={this.state.database}
                                 isDatabaseInit={this.state.isDatabaseInit}
+                                userId={this.state.userId}
                             />
                         )}
                     />

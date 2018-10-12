@@ -14,7 +14,7 @@ class Search extends Component {
 	}
 
 	saveSong = () => {
-		saveTrackApi(this.props.database, this.state.activeTrack);
+		saveTrackApi(this.props.database, this.state.activeTrack, this.props.userId);
 	}
 
 	updateFilter = (event) => {
@@ -60,6 +60,7 @@ class Search extends Component {
 
 Search.propTypes = {
 	token: PropTypes.string,
+	userId: PropTypes.string,
 }
 
 export default Search;

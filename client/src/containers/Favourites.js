@@ -15,18 +15,17 @@ class Favourites extends Component {
 	}
 
 	componentDidUpdate(prevProps) {
-		// Typical usage (don't forget to compare props):
 		if (this.props.isDatabaseInit !== prevProps.isDatabaseInit) {
 			this.getFavourites();
 		}
 	}
 
 	getFavourites() {
-        if (this.props.database) {
-          getFavouritesApi(this.props.database)
+        if (this.props.database && this.props.userId) {
+          getFavouritesApi(this.props.database, this.props.userId)
             .then(payload => {
 	            this.setState({
-	            	favourites: Object.values(payload.val().songs)
+	            	favourites: Object.values(payload.val())
 	            });
             });
         }
