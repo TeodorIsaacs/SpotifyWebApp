@@ -4,7 +4,13 @@ export async function getFavourites(database, userId){
 }
 
 export function saveTrack(database, track, userId){
-	database.ref(`users/${userId}/songs`).child(track.uri).set(track);
+	if (userId) {
+		database.ref(`users/${userId}/songs`).child(track.uri).set(track);
+	}
+}
+
+export function deleteTrack(database, track, userId){
+    database.ref(`users/${userId}/songs`).child(track.uri).remove();
 }
 
 export const DB_CONFIG = {
@@ -14,4 +20,4 @@ export const DB_CONFIG = {
     projectId: "spotifywebapp",
     storageBucket: "spotifywebapp.appspot.com",
     messagingSenderId: "896064864334"
-  };
+};

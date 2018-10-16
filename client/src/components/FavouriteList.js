@@ -12,6 +12,7 @@ class FavouriteList extends Component {
 					trackClick = {() => this.props.trackClick(track)}
 					track = {track}
 					key = {track.uri}
+					deleteTrack = {this.props.deleteTrack}
 				/>
 			)));
 	}
@@ -29,6 +30,7 @@ class FavouriteList extends Component {
 FavouriteList.propTypes = {
 	favourites: PropTypes.array.isRequired,
 	trackClick: PropTypes.func.isRequired,
+	deleteTrack: PropTypes.func.isRequired,
 }
 
 export default FavouriteList;

@@ -3,13 +3,22 @@ import PropTypes from 'prop-types';
 import "FavouriteListing.css"
 
 class FavouriteListing extends Component {
+
 	render(){
 		return(
 			<div
 				className="song-listing"
-				onClick={() => this.props.trackClick(this.props.track)}
-			>
-				{this.props.track.name}
+			>	
+				<div 
+					onClick={() => this.props.trackClick(this.props.track)}
+					className="song-listing-name"
+				>
+					{this.props.track.name}
+				</div>
+				<button 
+					className="delete-track-button"
+					onClick={() => this.props.deleteTrack(this.props.track)}
+				/>
 			</div>
 		)
 	}
@@ -21,6 +30,7 @@ FavouriteListing.propTypes = {
 		uri: PropTypes.string,
 	}).isRequired,
 	trackClick: PropTypes.func.isRequired,
+	deleteTrack: PropTypes.func.isRequired,
 }
 
 export default FavouriteListing;

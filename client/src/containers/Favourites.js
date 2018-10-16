@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./Favourites.css";
 import Track from "Track";
-import FavouriteList from "FavouriteList"
-import {getFavourites as getFavouritesApi} from "firebaseApi";
+import FavouriteList from "FavouriteList";
+import {getFavourites as getFavouritesApi, deleteTrack as deleteTrackApi} from "firebaseApi";
 import PropTypes from 'prop-types';
 
 class Favourites extends Component {
@@ -10,6 +10,7 @@ class Favourites extends Component {
 		track: null,
 		favourites: null,
 	};
+
 	componentWillMount() {
 		this.getFavourites();
 	}
@@ -31,6 +32,10 @@ class Favourites extends Component {
         }
     }
 
+    deleteTrack = (track) => {
+    	deleteTrackApi(this.props.database, track, this.props.userId);
+    }
+
 	render() {
 		return (
 			<div className="favourites">{
@@ -38,15 +43,19 @@ class Favourites extends Component {
 					<FavouriteList
 						trackClick = {track => this.setState({track: track})}
 						favourites = {this.state.favourites}
+						deleteTrack = {this.deleteTrack}
 					/>}
-				{this.state.track && <Track track={this.state.track} />}
+
+				{(this.state.track) && 
+					<Track track={this.state.track} />
+			}
 			</div>
 		);
 	}
 }
 
 Favourites.propTypes = {
-
+	userId: PropTypes.string,
 }
 
 export default Favourites;
