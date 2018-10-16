@@ -7,11 +7,15 @@ class Welcome extends Component {
     return (
       <div className="welcome">
 
-        <h2>Welcome to MusicBois</h2>
+        <h2 className="welcome-title">Welcome to MusicBois</h2>
 
-        <p>To use this app you need to login to your Spotify Account. <br/>Click the link below! </p>
+        <p className="welcome-text">
+			To use this app you need to login to your Spotify Account.
+			<br/> 
+			Click the link below! 
+        </p>
 
-        <a href='http://localhost:8888' > Login to Spotify </a>
+        <a className="redirect-button" href='http://localhost:8888' > Login to Spotify </a>
       </div>
     );
   }

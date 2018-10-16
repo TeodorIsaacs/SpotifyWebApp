@@ -1,4 +1,17 @@
 .welcome {
-	display: block;
+	margin-top: 100px;
 	text-align: center;
+	font-family: Futura;
+}
+
+.welcome-text {
+	color: #eee;
+	font-size: calc(7px + 1vw);
+}
+
+.welcome-title {
+	margin: 100px;
+	color: #ff88aa;
+	font-size: calc(20px + 3vw);
+	margin: auto;
 }
