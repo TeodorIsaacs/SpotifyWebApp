@@ -1,0 +1,35 @@
+.error-component {
+	margin-top: 50px;
+	text-align: center;
+	font-family: Futura;
+}
+
+.error-code {
+	color: #ff88aa;
+	font-size: calc(30px  + 8vw);
+	margin: auto;
+}
+
+.error-title {
+	color: #eee;
+	font-size: calc(10px + 1.5vw);
+	margin: auto;
+}
+
+.error-text {
+	color: #eee;
+	font-size: calc(7px + 1vw);
+}
+
+.redirect-button {
+	background-color: #ffbb88;
+	padding: 5px 10px 5px 10px;
+	border-radius: 4px;
+	text-decoration: none;
+	color: #000;
+	font-size: calc(5px + 1vw);
+}
+
+.redirect-button:hover {
+	background-color: #ff88aa;
+}

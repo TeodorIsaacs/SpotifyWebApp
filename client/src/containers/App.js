@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
-import { Route } from "react-router-dom";
+import { Route, Switch} from "react-router-dom";
 import Welcome from "Welcome";
 import Search from "Search";
 import Favourites from "Favourites";
 import Navbar from "Navbar";
 import Header from "Header";
+import ErrorComponent from "ErrorComponent";
 import {getHashParams, getAccountDetails} from "spotifyApi";
 
 import { DB_CONFIG } from "firebaseApi";
@@ -19,6 +20,7 @@ class App extends Component {
         database: null,
         isDatabaseInit: false,
         userId: null,
+        hasErrorCode: null,
     };
 
     componentDidMount() {
@@ -41,7 +43,11 @@ class App extends Component {
     getUser(token){
         getAccountDetails(token)
             .then(payload => {
-                this.setState({ userId: payload.id });
+                if (payload.error) {
+                    this.setState({ hasErrorCode: payload.error.status })
+                } else {
+                    this.setState({ userId: payload.id });
+                }
             })
     }
 
@@ -50,7 +56,7 @@ class App extends Component {
             <div className="main">
                 <Header/>
                 <Navbar/>
-                <React.Fragment>
+                <Switch>
                     <Route
                         exact
                         path="/"
@@ -59,26 +65,41 @@ class App extends Component {
                     <Route
                         path="/search"
                         render={() => (
-                            <Search
-                                token={this.state.userToken}
-                                database={this.state.database}
-                                userId={this.state.userId}
-                            />
+                            this.state.hasErrorCode 
+                                ?
+                                    <ErrorComponent errorCode={this.state.hasErrorCode} />
+                                :
+                                    <Search
+                                        token={this.state.userToken}
+                                        database={this.state.database}
+                                        userId={this.state.userId}
+                                    />
                         )}
                     />
 
                     <Route
                         path="/favourites"
                         render={() => (
-                            <Favourites
-                                favourites={this.state.favs && Object.values(this.state.favs)}
-                                database={this.state.database}
-                                isDatabaseInit={this.state.isDatabaseInit}
-                                userId={this.state.userId}
-                            />
+                            this.state.hasErrorCode 
+                                ?
+                                    <ErrorComponent errorCode={this.state.hasErrorCode} />
+                                :
+                                    <Favourites
+                                        favourites={this.state.favs && Object.values(this.state.favs)}
+                                        database={this.state.database}
+                                        isDatabaseInit={this.state.isDatabaseInit}
+                                        userId={this.state.userId}
+                                        isLoggedIn={this.state.isLoggedIn}
+                                    />
                         )}
                     />
-                </React.Fragment>
+
+                    <Route 
+                        render={() => (
+                            <ErrorComponent errorCode={404}/>
+                        )}
+                    />
+                </Switch>
             </div>
         );
     }
